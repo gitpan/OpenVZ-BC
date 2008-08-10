@@ -1,6 +1,6 @@
 package OpenVZ::BC;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 our $default_bc_file = '/proc/bc/resources';
 
 =pod
@@ -109,7 +109,7 @@ sub hash
       {
         $vpsid = $1;
       }
-      next unless $vpsid;
+      next if ($vpsid eq '');
       my @data = split(/\s+/, $line);
       shift(@data); # skip the blank column
       my $resource = shift(@data);
